@@ -32,6 +32,7 @@ class _HomeState extends State<Home> {
     );
   }
 
+  Color active_color = HexColor("#70ee9c");
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,13 +60,19 @@ class _HomeState extends State<Home> {
           BottomNavyBarItem(
             icon: Icon(Icons.home),
             title: Text('Home'),
-            activeColor: HexColor("#70ee9c"),
+            activeColor: active_color,
             textAlign: TextAlign.center,
           ),
           BottomNavyBarItem(
             icon: Icon(Icons.chrome_reader_mode),
             title: Text('Recent'),
-            activeColor: HexColor("#70ee9c"),
+            activeColor: active_color,
+            textAlign: TextAlign.center,
+          ),
+          BottomNavyBarItem(
+            icon: Icon(Icons.store),
+            title: Text('Market'),
+            activeColor: active_color,
             textAlign: TextAlign.center,
           ),
         ],

@@ -22,11 +22,12 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
             fontFamily: 'Poppins',
-            accentColor: HexColor('#031D07'),
             textTheme: TextTheme(
               headline1: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
               bodyText1: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-            )),
+            ),
+            colorScheme: ColorScheme.fromSwatch()
+                .copyWith(secondary: HexColor('#031D07'))),
         title: 'plantO',
         home: AnimatedSplashScreen(
           splashIconSize: 900,
