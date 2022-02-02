@@ -57,7 +57,7 @@ class _DiseaseDataState extends State<DiseaseData> {
     return Scaffold(
       appBar: AppBar(
         title: Text(value),
-        backgroundColor: Theme.of(context).accentColor,
+        backgroundColor: Theme.of(context).colorScheme.secondary,
       ),
       body: StreamBuilder(
         stream: FirebaseFirestore.instance.collection(value).snapshots(),
