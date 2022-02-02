@@ -138,8 +138,9 @@ class _TestScreenState extends State<TestScreen> {
                                       ),
                                       ElevatedButton(
                                         style: ElevatedButton.styleFrom(
-                                          primary:
-                                              Theme.of(context).accentColor,
+                                          primary: Theme.of(context)
+                                              .colorScheme
+                                              .secondary,
                                           shape: RoundedRectangleBorder(
                                             borderRadius:
                                                 BorderRadius.circular(20),
