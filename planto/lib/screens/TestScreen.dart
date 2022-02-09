@@ -11,9 +11,9 @@ class TestScreen extends StatefulWidget {
 }
 
 class _TestScreenState extends State<TestScreen> {
-  bool _isLoading;
-  PickedFile _image;
-  List _output;
+  bool? _isLoading;
+  PickedFile? _image;
+  List? _output;
   final _picker = ImagePicker();
 
   @override
@@ -55,7 +55,7 @@ class _TestScreenState extends State<TestScreen> {
         threshold: 0.5);
     setState(() {
       _isLoading = false;
-      _output = output;
+      _output = output!;
     });
   }
 
@@ -90,7 +90,7 @@ class _TestScreenState extends State<TestScreen> {
             ),
             backgroundColor: Colors.white,
           ),
-          body: _isLoading
+          body: _isLoading == null
               ? Container(
                   child: CircularProgressIndicator(),
                   alignment: Alignment.center,
@@ -116,7 +116,7 @@ class _TestScreenState extends State<TestScreen> {
                                   ),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(20),
-                                    child: Image.file(File(_image.path)),
+                                    child: Image.file(File(_image!.path)),
                                   ),
                                 ),
                               ),
@@ -131,7 +131,7 @@ class _TestScreenState extends State<TestScreen> {
                                 : Column(
                                     children: [
                                       Text(
-                                        "${_output[0]["label"]}",
+                                        "${_output![0]["label"]}",
                                         style: Theme.of(context)
                                             .textTheme
                                             .headline1,
@@ -150,8 +150,9 @@ class _TestScreenState extends State<TestScreen> {
                                           Navigator.of(context).push(
                                             MaterialPageRoute(
                                               builder: (context) => DiseaseData(
-                                                value: "${_output[0]["label"]}",
-                                                img: File(_image.path),
+                                                value:
+                                                    "${_output![0]["label"]}",
+                                                img: File(_image!.path),
                                               ),
                                             ),
                                           );

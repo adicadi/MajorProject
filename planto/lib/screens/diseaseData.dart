@@ -8,13 +8,13 @@ import 'package:planto/Model/diseasemodel.dart';
 
 // ignore: must_be_immutable
 class DiseaseData extends StatefulWidget {
-  final String value;
+  final String? value;
   var img;
 
   DiseaseData({this.value, this.img});
 
   @override
-  _DiseaseDataState createState() => _DiseaseDataState(value, img);
+  _DiseaseDataState createState() => _DiseaseDataState(value!, img);
 }
 
 class _DiseaseDataState extends State<DiseaseData> {
@@ -103,7 +103,8 @@ class _DiseaseDataState extends State<DiseaseData> {
                                             fontFamily: 'Poppins')),
                                   ),
                                   Text(
-                                    snapshot.data.docs[0]['intro'],
+                                    (snapshot.data! as QuerySnapshot).docs[0]
+                                        ['intro'],
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       fontFamily: 'Poppins',
@@ -119,7 +120,8 @@ class _DiseaseDataState extends State<DiseaseData> {
                                     ),
                                   ),
                                   Text(
-                                    snapshot.data.docs[0]['management'],
+                                    (snapshot.data! as QuerySnapshot).docs[0]
+                                        ['management'],
                                     textAlign: TextAlign.center,
                                   ),
                                 ],

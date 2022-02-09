@@ -51,7 +51,7 @@ class _RecentSearchState extends State<RecentSearch> {
                 itemCount: diseaseData.diseases.length,
                 itemBuilder: (_, i) => Column(
                   children: [
-                    RecentItem(diseaseData.diseases[i].name),
+                    RecentItem(diseaseData.diseases[i].name.toString()),
                   ],
                 ),
               ),

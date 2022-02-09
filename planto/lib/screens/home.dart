@@ -1,3 +1,4 @@
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -21,10 +22,10 @@ class _HomeState extends State<Home> {
     super.initState();
     pageController.addListener(
       () {
-        if (pageController.page.round() != _currentIndex) {
+        if (pageController.page!.round() != _currentIndex) {
           setState(
             () {
-              _currentIndex = pageController.page.round();
+              _currentIndex = pageController.page!.round();
             },
           );
         }
@@ -32,7 +33,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Color active_color = HexColor("#70ee9c");
+  Color activeColor = HexColor("#70ee9c");
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,19 +61,19 @@ class _HomeState extends State<Home> {
           BottomNavyBarItem(
             icon: Icon(Icons.home),
             title: Text('Home'),
-            activeColor: active_color,
+            activeColor: activeColor,
             textAlign: TextAlign.center,
           ),
           BottomNavyBarItem(
             icon: Icon(Icons.chrome_reader_mode),
             title: Text('Recent'),
-            activeColor: active_color,
+            activeColor: activeColor,
             textAlign: TextAlign.center,
           ),
           BottomNavyBarItem(
             icon: Icon(Icons.store),
             title: Text('Market'),
-            activeColor: active_color,
+            activeColor: activeColor,
             textAlign: TextAlign.center,
           ),
         ],
