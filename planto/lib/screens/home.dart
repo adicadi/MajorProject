@@ -3,6 +3,7 @@ import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:planto/screens/TestScreen.dart';
+import 'package:planto/screens/marketScreen.dart';
 import 'package:planto/screens/recent.dart';
 
 // ignore: must_be_immutable
@@ -15,7 +16,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _currentIndex = 0;
-  var _pages = [TestScreen(), RecentSearch()];
+  var _pages = [TestScreen(), RecentSearch(), MarketScreen()];
   PageController pageController = PageController();
   @override
   void initState() {
