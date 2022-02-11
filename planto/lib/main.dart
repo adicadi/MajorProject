@@ -1,5 +1,6 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:planto/Model/diseaseProvider.dart';
 import 'package:planto/screens/home.dart';
@@ -8,6 +9,7 @@ import '../widgets/splash.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+
   runApp(MyApp());
 }
 
@@ -20,6 +22,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
+
         theme: ThemeData(
             fontFamily: 'Poppins',
             textTheme: TextTheme(
@@ -29,13 +32,14 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSwatch()
                 .copyWith(secondary: HexColor('#031D07'))),
         title: 'plantO',
-        home: AnimatedSplashScreen(
+        home: /* AnimatedSplashScreen(
           splashIconSize: 900,
           splash: Splash(),
           backgroundColor: HexColor('#031D07'),
           splashTransition: SplashTransition.scaleTransition,
-          nextScreen: Home(),
-        ),
+          nextScreen:  */
+            Home(),
+        //),
       ),
     );
   }

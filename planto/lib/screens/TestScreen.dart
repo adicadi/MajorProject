@@ -101,6 +101,7 @@ class _TestScreenState extends State<TestScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Container(
+                        alignment: Alignment.center,
                         child: _image == null
                             ? Container(
                                 child: Image.asset('logo.png'),
@@ -123,52 +124,63 @@ class _TestScreenState extends State<TestScreen> {
                       ),
                       Padding(
                         padding: EdgeInsets.all(10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            _output == null
-                                ? Text("")
-                                : Column(
-                                    children: [
-                                      Text(
-                                        "${_output![0]["label"]}",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .headline1,
-                                      ),
-                                      ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                          primary: Theme.of(context)
-                                              .colorScheme
-                                              .secondary,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(20),
-                                          ),
-                                        ),
-                                        onPressed: () {
-                                          Navigator.of(context).push(
-                                            MaterialPageRoute(
-                                              builder: (context) => DiseaseData(
-                                                value:
-                                                    "${_output![0]["label"]}",
-                                                img: File(_image!.path),
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                        child: Row(
-                                          children: [
-                                            Text('Info'),
-                                            Icon(Icons
-                                                .keyboard_arrow_right_rounded)
-                                          ],
-                                        ),
-                                      )
-                                    ],
+                        child: _output == null
+                            ? Text("")
+                            : Column(
+                                children: [
+                                  Text(
+                                    "${_output![0]["label"]}",
+                                    style:
+                                        Theme.of(context).textTheme.headline1,
                                   ),
-                          ],
-                        ),
+                                  ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      primary: Theme.of(context)
+                                          .colorScheme
+                                          .secondary,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(20),
+                                      ),
+                                    ),
+                                    onPressed: () {
+                                      Navigator.of(context)
+                                          .push(PageRouteBuilder(
+                                        pageBuilder: (context, animation,
+                                                secondaryAnimation) =>
+                                            DiseaseData(
+                                          value: "${_output![0]["label"]}",
+                                          img: File(_image!.path),
+                                        ),
+                                        transitionsBuilder: (context, animation,
+                                                secondaryAnimation, child) =>
+                                            ScaleTransition(
+                                          scale: animation,
+                                          child: child,
+                                          alignment: Alignment.bottomCenter,
+                                        ),
+                                      ));
+                                    },
+                                    child: Container(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.13,
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            'Info',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 14),
+                                          ),
+                                          Icon(Icons
+                                              .keyboard_arrow_right_rounded)
+                                        ],
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
                       ),
                     ],
                   ),
