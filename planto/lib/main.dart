@@ -1,11 +1,8 @@
-import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:planto/Model/diseaseProvider.dart';
 import 'package:planto/screens/home.dart';
 import 'package:provider/provider.dart';
-import '../widgets/splash.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

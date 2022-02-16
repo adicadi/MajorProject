@@ -1,9 +1,16 @@
 import 'dart:io';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:planto/Model/diseaseProvider.dart';
 import 'package:planto/screens/diseaseData.dart';
+import 'package:planto/widgets/planto_bar.dart';
+import 'package:planto/widgets/recent_Carousel.dart';
+import 'package:planto/widgets/test_Screenrecent.dart';
 import 'package:tflite/tflite.dart';
+import 'package:provider/provider.dart';
 
 class TestScreen extends StatefulWidget {
   @override
@@ -61,7 +68,9 @@ class _TestScreenState extends State<TestScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Color elevatedBtnColor = HexColor('70EE9C');
     final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+    final diseaseData = Provider.of<Disease>(context);
 
     return FutureBuilder<FirebaseApp>(
       // Initialize FlutterFire:
@@ -79,17 +88,8 @@ class _TestScreenState extends State<TestScreen> {
         }
 
         return Scaffold(
-          appBar: AppBar(
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                    width: MediaQuery.of(context).size.width * 0.4,
-                    child: Image.asset('label.png'))
-              ],
-            ),
-            backgroundColor: Colors.white,
-          ),
+          appBar: PreferredSize(
+              preferredSize: const Size.fromHeight(60), child: PlantoBar()),
           body: _isLoading == null
               ? Container(
                   child: CircularProgressIndicator(),
@@ -97,31 +97,29 @@ class _TestScreenState extends State<TestScreen> {
                 )
               : Container(
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    //mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Container(
+                      /*  Container(
                         alignment: Alignment.center,
-                        child: _image == null
-                            ? Container(
-                                child: Image.asset('logo.png'),
-                              )
-                            : Container(
-                                margin: EdgeInsets.all(10),
-                                height:
-                                    MediaQuery.of(context).size.height * 0.5,
-                                child: Card(
-                                  elevation: 20,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(20),
-                                    child: Image.file(File(_image!.path)),
-                                  ),
+                        child:  */
+                      _image == null
+                          ? RecentCarousel(diseaseData: diseaseData)
+                          : Container(
+                              alignment: Alignment.center,
+                              margin: EdgeInsets.all(10),
+                              height: MediaQuery.of(context).size.height * 0.5,
+                              child: Card(
+                                elevation: 20,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(20),
+                                  child: Image.file(File(_image!.path)),
                                 ),
                               ),
-                      ),
+                              //),
+                            ),
                       Padding(
                         padding: EdgeInsets.all(10),
                         child: _output == null
@@ -135,9 +133,7 @@ class _TestScreenState extends State<TestScreen> {
                                   ),
                                   ElevatedButton(
                                     style: ElevatedButton.styleFrom(
-                                      primary: Theme.of(context)
-                                          .colorScheme
-                                          .secondary,
+                                      primary: elevatedBtnColor,
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(20),
                                       ),
@@ -170,11 +166,14 @@ class _TestScreenState extends State<TestScreen> {
                                           Text(
                                             'Info',
                                             style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 14),
+                                                color: HexColor('145E2E'),
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.bold),
                                           ),
-                                          Icon(Icons
-                                              .keyboard_arrow_right_rounded)
+                                          Icon(
+                                              Icons
+                                                  .keyboard_arrow_right_rounded,
+                                              color: HexColor('145E2E'))
                                         ],
                                       ),
                                     ),
@@ -188,7 +187,12 @@ class _TestScreenState extends State<TestScreen> {
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerFloat,
           floatingActionButton: FloatingActionButton.extended(
-            label: Text('Test Sample'),
+            label: Text(
+              'Test Sample',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            foregroundColor: HexColor('145E2E'),
+            backgroundColor: HexColor('70EE9C'),
             icon: Icon(Icons.local_florist),
             onPressed: () {
               chooseImage();

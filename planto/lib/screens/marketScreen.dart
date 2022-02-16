@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:planto/widgets/planto_bar.dart';
 
 class MarketScreen extends StatefulWidget {
   const MarketScreen({Key? key}) : super(key: key);
@@ -10,6 +11,9 @@ class MarketScreen extends StatefulWidget {
 class _MarketState extends State<MarketScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(60), child: PlantoBar()),
+    );
   }
 }

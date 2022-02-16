@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:planto/Model/diseaseProvider.dart';
+import 'package:planto/widgets/planto_bar.dart';
 import 'package:planto/widgets/recent_item.dart';
 import 'package:provider/provider.dart';
 
@@ -30,30 +31,26 @@ class _RecentSearchState extends State<RecentSearch> {
   Widget build(BuildContext context) {
     final diseaseData = Provider.of<Disease>(context);
     return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-                width: MediaQuery.of(context).size.width * 0.4,
-                child: Image.asset('label.png'))
-          ],
-        ),
-        backgroundColor: Colors.white,
-      ),
+      appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(60), child: PlantoBar()),
       body: _isloading
           ? Center(
               child: CircularProgressIndicator(),
             )
           : Padding(
-              padding: EdgeInsets.all(10),
-              child: ListView.builder(
+              padding: EdgeInsets.only(top: 5, left: 10, right: 10),
+              child: GridView.builder(
                 itemCount: diseaseData.diseases.length,
                 itemBuilder: (_, i) => Column(
                   children: [
                     RecentItem(diseaseData.diseases[i].name.toString()),
                   ],
                 ),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 1.5 / 1.5,
+                    crossAxisSpacing: 30,
+                    mainAxisSpacing: 0),
               ),
             ),
     );
