@@ -23,10 +23,10 @@ class _HomeState extends State<Home> {
     super.initState();
     pageController.addListener(
       () {
-        if (pageController.page!.round() != _currentIndex) {
+        if (pageController.page.round() != _currentIndex) {
           setState(
             () {
-              _currentIndex = pageController.page!.round();
+              _currentIndex = pageController.page.round();
             },
           );
         }

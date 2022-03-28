@@ -11,13 +11,13 @@ import 'package:planto/widgets/disease_Text.dart';
 
 // ignore: must_be_immutable
 class DiseaseData extends StatefulWidget {
-  final String? value;
+  final String value;
   var img;
 
   DiseaseData({this.value, this.img});
 
   @override
-  _DiseaseDataState createState() => _DiseaseDataState(value!, img);
+  _DiseaseDataState createState() => _DiseaseDataState(value, img);
 }
 
 class _DiseaseDataState extends State<DiseaseData> {

@@ -3,7 +3,7 @@ import 'package:hexcolor/hexcolor.dart';
 
 class PlantoBar extends StatelessWidget {
   const PlantoBar({
-    Key? key,
+    Key key,
   }) : super(key: key);
 
   @override

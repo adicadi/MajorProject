@@ -1,29 +1,57 @@
 import 'package:flutter/material.dart';
+import 'package:planto/Model/cart.dart';
+import 'package:planto/Model/product_provider.dart';
 import 'package:planto/screens/cart_screen.dart';
 import 'package:planto/widgets/app_drawer.dart';
 import 'package:planto/widgets/badge.dart';
 import 'package:provider/provider.dart';
-import 'package:planto/Model/cart.dart';
-import 'package:planto/screens/products_overview_screen.dart';
-import 'package:planto/widgets/products_grid.dart';
 
-class MarketScreen extends StatefulWidget {
-  const MarketScreen({Key key}) : super(key: key);
+import '../widgets/products_grid.dart';
 
-  @override
-  _MarketState createState() => _MarketState();
+enum FilterOptions {
+  Favorites,
+  All,
 }
 
-class _MarketState extends State<MarketScreen> {
+class ProductsOverview extends StatefulWidget {
+  @override
+  _ProductsOverviewState createState() => _ProductsOverviewState();
+}
+
+class _ProductsOverviewState extends State<ProductsOverview> {
   var _showOnlyFavorites = false;
   var _isInit = true;
   var _isloading = false;
 
   @override
+  void initState() {
+    //Provider.of<Products>(context).fetchAndSetProducts(); Won't Work !!
+    /* Future.delayed(Duration.zero).then((_) {
+      Provider.of<Products>(context).fetchAndSetProducts();
+    }); */
+
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    if (_isInit) {
+      setState(() {
+        _isloading = true;
+      });
+      Provider.of<Products>(context).fetchAndSetProducts().then((_) {
+        _isloading = false;
+      });
+    }
+    _isInit = false;
+    super.didChangeDependencies();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Shop'),
+        title: Text('MarketPlace'),
         actions: <Widget>[
           PopupMenuButton(
             onSelected: (FilterOptions selectedValue) {
@@ -49,7 +77,7 @@ class _MarketState extends State<MarketScreen> {
           ),
           Consumer<Cart>(
             builder: (_, cartData, ch) => Badge(
-              child: ch as Widget,
+              child: ch,
               value: cartData.itemCount.toString(),
             ),
             child: IconButton(
@@ -67,9 +95,6 @@ class _MarketState extends State<MarketScreen> {
               child: CircularProgressIndicator(),
             )
           : ProductsGrid(_showOnlyFavorites),
-
-      /*  PreferredSize(
-          preferredSize: const Size.fromHeight(60), child: PlantoBar()), */
     );
   }
 }

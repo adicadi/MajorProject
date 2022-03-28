@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -8,7 +7,6 @@ import 'package:planto/Model/diseaseProvider.dart';
 import 'package:planto/screens/diseaseData.dart';
 import 'package:planto/widgets/planto_bar.dart';
 import 'package:planto/widgets/recent_Carousel.dart';
-import 'package:planto/widgets/test_Screenrecent.dart';
 import 'package:tflite/tflite.dart';
 import 'package:provider/provider.dart';
 
@@ -18,9 +16,11 @@ class TestScreen extends StatefulWidget {
 }
 
 class _TestScreenState extends State<TestScreen> {
-  bool? _isLoading;
-  PickedFile? _image;
-  List? _output;
+  var _isLoading = false;
+  var _isInit = true;
+
+  PickedFile _image;
+  List _output;
   final _picker = ImagePicker();
 
   @override
@@ -62,8 +62,22 @@ class _TestScreenState extends State<TestScreen> {
         threshold: 0.5);
     setState(() {
       _isLoading = false;
-      _output = output!;
+      _output = output;
     });
+  }
+
+  @override
+  void didChangeDependencies() {
+    if (_isInit) {
+      setState(() {
+        _isLoading = true;
+      });
+      Provider.of<Disease>(context).findRecentSearch().then((_) {
+        _isLoading = false;
+      });
+    }
+    _isInit = false;
+    super.didChangeDependencies();
   }
 
   @override
@@ -90,7 +104,7 @@ class _TestScreenState extends State<TestScreen> {
         return Scaffold(
           appBar: PreferredSize(
               preferredSize: const Size.fromHeight(60), child: PlantoBar()),
-          body: _isLoading == null
+          body: _isLoading
               ? Container(
                   child: CircularProgressIndicator(),
                   alignment: Alignment.center,
@@ -102,7 +116,7 @@ class _TestScreenState extends State<TestScreen> {
                       /*  Container(
                         alignment: Alignment.center,
                         child:  */
-                      _image == null
+                      _image == null || _isLoading
                           ? RecentCarousel(diseaseData: diseaseData)
                           : Container(
                               alignment: Alignment.center,
@@ -115,7 +129,7 @@ class _TestScreenState extends State<TestScreen> {
                                 ),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(20),
-                                  child: Image.file(File(_image!.path)),
+                                  child: Image.file(File(_image.path)),
                                 ),
                               ),
                               //),
@@ -127,7 +141,7 @@ class _TestScreenState extends State<TestScreen> {
                             : Column(
                                 children: [
                                   Text(
-                                    "${_output![0]["label"]}",
+                                    "${_output[0]["label"]}",
                                     style:
                                         Theme.of(context).textTheme.headline1,
                                   ),
@@ -144,8 +158,8 @@ class _TestScreenState extends State<TestScreen> {
                                         pageBuilder: (context, animation,
                                                 secondaryAnimation) =>
                                             DiseaseData(
-                                          value: "${_output![0]["label"]}",
-                                          img: File(_image!.path),
+                                          value: "${_output[0]["label"]}",
+                                          img: File(_image.path),
                                         ),
                                         transitionsBuilder: (context, animation,
                                                 secondaryAnimation, child) =>

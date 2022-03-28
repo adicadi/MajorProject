@@ -1,11 +1,11 @@
 class DiseaseModel {
-  final String? id;
+  final String id;
   final String name;
   //final String imageUrl;
 
   DiseaseModel({
     this.id,
-    required this.name,
+    this.name,
     /* this.imageUrl */
   });
   factory DiseaseModel.fromJson(Map<String, dynamic> json) {

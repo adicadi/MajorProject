@@ -5,8 +5,8 @@ import 'package:planto/widgets/test_Screenrecent.dart';
 
 class RecentCarousel extends StatelessWidget {
   const RecentCarousel({
-    Key? key,
-    required this.diseaseData,
+    Key key,
+    @required this.diseaseData,
   }) : super(key: key);
 
   final Disease diseaseData;

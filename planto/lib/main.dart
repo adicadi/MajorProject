@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:planto/Model/cart.dart';
 import 'package:planto/Model/diseaseProvider.dart';
+import 'package:planto/Model/orders.dart';
+import 'package:planto/Model/product_provider.dart';
+import 'package:planto/screens/cart_screen.dart';
+import 'package:planto/screens/edit_product_screen.dart';
 import 'package:planto/screens/home.dart';
+import 'package:planto/screens/orders_screen.dart';
+import 'package:planto/screens/product_detail.dart';
+import 'package:planto/screens/user_products_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -16,6 +24,15 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(value: Disease()),
+        ChangeNotifierProvider(
+          create: (context) => Products(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => Cart(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => Orders(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -36,6 +53,13 @@ class MyApp extends StatelessWidget {
           splashTransition: SplashTransition.scaleTransition,
           nextScreen:  */
             Home(),
+        routes: {
+          ProductDetail.routeName: (context) => ProductDetail(),
+          CartScreen.routeName: (context) => CartScreen(),
+          OrdersScreen.routeName: (context) => OrdersScreen(),
+          UserProductsScreen.routeName: (context) => UserProductsScreen(),
+          EditProductScreen.routeName: (context) => EditProductScreen(),
+        },
         //),
       ),
     );

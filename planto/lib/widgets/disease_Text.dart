@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-Container diseaseText(BuildContext context, AsyncSnapshot<Object?> snapshot) {
+Container diseaseText(BuildContext context, AsyncSnapshot<Object> snapshot) {
   return Container(
     padding: EdgeInsets.only(top: 150),
     //alignment: Alignment.bottomCenter,
@@ -27,7 +27,7 @@ Container diseaseText(BuildContext context, AsyncSnapshot<Object?> snapshot) {
                             fontFamily: 'Poppins')),
                   ),
                   Text(
-                    (snapshot.data! as QuerySnapshot).docs[0]['intro'],
+                    (snapshot.data as QuerySnapshot).docs[0]['intro'],
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontFamily: 'Poppins',
@@ -41,7 +41,7 @@ Container diseaseText(BuildContext context, AsyncSnapshot<Object?> snapshot) {
                     ),
                   ),
                   Text(
-                    (snapshot.data! as QuerySnapshot).docs[0]['management'],
+                    (snapshot.data as QuerySnapshot).docs[0]['management'],
                     textAlign: TextAlign.center,
                   ),
                 ],
