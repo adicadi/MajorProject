@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:planto/Model/product_provider.dart';
 import 'package:planto/screens/edit_product_screen.dart';
-import 'package:planto/widgets/app_drawer.dart';
 import 'package:planto/widgets/user_product_item.dart';
 import 'package:provider/provider.dart';
 
@@ -23,7 +22,6 @@ class UserProductsScreen extends StatelessWidget {
           ),
         ],
       ),
-      drawer: AppDrawer(),
       body: Padding(
         padding: EdgeInsets.all(8),
         child: ListView.builder(

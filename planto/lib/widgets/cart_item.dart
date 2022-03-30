@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:planto/Model/cart.dart';
 import 'package:provider/provider.dart';
 
@@ -63,6 +64,7 @@ class CartItem extends StatelessWidget {
         cart.removeItem(productId);
       },
       child: Card(
+        elevation: 5,
         margin: EdgeInsets.symmetric(
           horizontal: 15,
           vertical: 4,
@@ -71,6 +73,7 @@ class CartItem extends StatelessWidget {
           padding: EdgeInsets.all(8),
           child: ListTile(
             leading: CircleAvatar(
+              backgroundColor: HexColor('e2ffec'),
               child: Padding(
                 padding: EdgeInsets.all(5),
                 child: FittedBox(child: Text('\$$price')),

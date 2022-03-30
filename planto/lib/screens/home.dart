@@ -5,6 +5,7 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:planto/screens/TestScreen.dart';
 import 'package:planto/screens/marketScreen.dart';
 import 'package:planto/screens/recent.dart';
+import 'package:planto/screens/user_screen.dart';
 
 // ignore: must_be_immutable
 class Home extends StatefulWidget {
@@ -16,7 +17,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _currentIndex = 0;
-  var _pages = [TestScreen(), RecentSearch(), MarketScreen()];
+  var _pages = [TestScreen(), RecentSearch(), MarketScreen(), UserScreen()];
   PageController pageController = PageController();
   @override
   void initState() {
@@ -74,6 +75,12 @@ class _HomeState extends State<Home> {
           BottomNavyBarItem(
             icon: Icon(Icons.store),
             title: Text('Market'),
+            activeColor: activeColor,
+            textAlign: TextAlign.center,
+          ),
+          BottomNavyBarItem(
+            icon: Icon(Icons.person_outline_outlined),
+            title: Text('User'),
             activeColor: activeColor,
             textAlign: TextAlign.center,
           ),

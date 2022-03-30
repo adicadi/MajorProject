@@ -28,7 +28,8 @@ class Products with ChangeNotifier {
   }
 
   Future<void> fetchAndSetProducts() async {
-    const url = 'https://shop-ab982-default-rtdb.firebaseio.com/products.json';
+    const url =
+        'https://planto-965f9-default-rtdb.firebaseio.com/products.json';
     try {
       final response = await http.get(Uri.parse(url));
       print(json.decode(response.body));
@@ -51,7 +52,8 @@ class Products with ChangeNotifier {
   }
 
   void addProduct(Product product) {
-    const url = 'https://shop-ab982-default-rtdb.firebaseio.com/products.json';
+    const url =
+        'https://planto-965f9-default-rtdb.firebaseio.com/products.json';
     http
         .post(
       Uri.parse(url),

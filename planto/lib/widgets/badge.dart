@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class Badge extends StatelessWidget {
   const Badge({
@@ -26,7 +27,7 @@ class Badge extends StatelessWidget {
             // color: Theme.of(context).accentColor,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.0),
-              color: color != null ? color : Theme.of(context).accentColor,
+              color: color != null ? color : HexColor('70EE9C'),
             ),
             constraints: BoxConstraints(
               minWidth: 16,

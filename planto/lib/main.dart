@@ -7,6 +7,7 @@ import 'package:planto/Model/product_provider.dart';
 import 'package:planto/screens/cart_screen.dart';
 import 'package:planto/screens/edit_product_screen.dart';
 import 'package:planto/screens/home.dart';
+import 'package:planto/screens/marketScreen.dart';
 import 'package:planto/screens/orders_screen.dart';
 import 'package:planto/screens/product_detail.dart';
 import 'package:planto/screens/user_products_screen.dart';
@@ -54,6 +55,7 @@ class MyApp extends StatelessWidget {
           nextScreen:  */
             Home(),
         routes: {
+          MarketScreen.routeName: (context) => MarketScreen(),
           ProductDetail.routeName: (context) => ProductDetail(),
           CartScreen.routeName: (context) => CartScreen(),
           OrdersScreen.routeName: (context) => OrdersScreen(),

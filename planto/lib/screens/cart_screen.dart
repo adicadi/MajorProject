@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:planto/Model/cart.dart' show Cart;
 import 'package:planto/Model/orders.dart';
 import 'package:planto/widgets/cart_item.dart';
@@ -12,6 +13,9 @@ class CartScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Cart'),
+        shadowColor: Colors.transparent,
+        backgroundColor: HexColor('e2ffec'),
+        foregroundColor: HexColor('145E2E'),
       ),
       body: Column(
         children: [
@@ -27,12 +31,17 @@ class CartScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.headline1,
                   ),
                   Spacer(),
-                  Chip(
-                    label: Text(
-                      '\$${cart.totalAmount.toStringAsFixed(2)}',
-                      style: Theme.of(context).textTheme.headline2,
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    height: MediaQuery.of(context).size.height * 0.05,
+                    child: Chip(
+                      elevation: 10,
+                      label: Text(
+                        '\$${cart.totalAmount.toStringAsFixed(2)}',
+                        //style: Theme.of(context).textTheme.headline2,
+                      ),
+                      backgroundColor: HexColor('e2ffec'),
                     ),
-                    backgroundColor: Theme.of(context).primaryColor,
                   ),
                   TextButton(
                     onPressed: () {
@@ -42,7 +51,10 @@ class CartScreen extends StatelessWidget {
                       );
                       cart.clear();
                     },
-                    child: Text('Order Now'),
+                    child: Text(
+                      'Order Now',
+                      style: TextStyle(color: HexColor('145E2E')),
+                    ),
                   ),
                 ],
               ),
