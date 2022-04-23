@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:planto/Model/product_provider.dart';
 import 'package:planto/screens/cart_screen.dart';
 import 'package:planto/widgets/badge.dart';
 import 'package:provider/provider.dart';
@@ -22,7 +23,32 @@ class MarketScreen extends StatefulWidget {
 
 class _MarketState extends State<MarketScreen> {
   var _showOnlyFavorites = false;
+  var _isInit = true;
   var _isloading = false;
+
+  @override
+  void initState() {
+    //Provider.of<Products>(context).fetchAndSetProducts(); Won't Work !!
+    /* Future.delayed(Duration.zero).then((_) {
+      Provider.of<Products>(context).fetchAndSetProducts();
+    }); */
+
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    if (_isInit) {
+      setState(() {
+        _isloading = true;
+      });
+      Provider.of<Products>(context).fetchAndSetProducts().then((_) {
+        _isloading = false;
+      });
+    }
+    _isInit = false;
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,15 +95,11 @@ class _MarketState extends State<MarketScreen> {
           ),
         ],
       ),
-      //drawer: AppDrawer(),
       body: _isloading
           ? Center(
               child: CircularProgressIndicator(),
             )
           : ProductsGrid(_showOnlyFavorites),
-
-      /*  PreferredSize(
-          preferredSize: const Size.fromHeight(60), child: PlantoBar()), */
     );
   }
 }

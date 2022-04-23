@@ -4,9 +4,9 @@ import 'package:planto/Model/cart.dart';
 import 'package:planto/Model/diseaseProvider.dart';
 import 'package:planto/Model/orders.dart';
 import 'package:planto/Model/product_provider.dart';
+import 'package:planto/screens/Intro.dart';
 import 'package:planto/screens/cart_screen.dart';
 import 'package:planto/screens/edit_product_screen.dart';
-import 'package:planto/screens/home.dart';
 import 'package:planto/screens/marketScreen.dart';
 import 'package:planto/screens/orders_screen.dart';
 import 'package:planto/screens/product_detail.dart';
@@ -47,13 +47,7 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSwatch()
                 .copyWith(secondary: HexColor('#031D07'))),
         title: 'plantO',
-        home: /* AnimatedSplashScreen(
-          splashIconSize: 900,
-          splash: Splash(),
-          backgroundColor: HexColor('#031D07'),
-          splashTransition: SplashTransition.scaleTransition,
-          nextScreen:  */
-            Home(),
+        home: Intro(),
         routes: {
           MarketScreen.routeName: (context) => MarketScreen(),
           ProductDetail.routeName: (context) => ProductDetail(),
