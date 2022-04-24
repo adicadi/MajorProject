@@ -29,9 +29,13 @@ class _CategoryState extends State<Category> {
               content: new Text("Are You Sure?"),
               actions: <Widget>[
                 // usually buttons at the bottom of the dialog
-                FlatButton(
-                  shape: StadiumBorder(),
-                  color: Colors.white,
+                ElevatedButton(
+                  style: ButtonStyle(
+                    shape: MaterialStateProperty.all(
+                      StadiumBorder(),
+                    ),
+                    backgroundColor: MaterialStateProperty.all(Colors.white),
+                  ),
                   child: new Text(
                     "No",
                     style: TextStyle(color: Colors.blue),
@@ -40,9 +44,14 @@ class _CategoryState extends State<Category> {
                     Navigator.of(context).pop();
                   },
                 ),
-                FlatButton(
-                  shape: StadiumBorder(),
-                  color: Colors.white,
+
+                ElevatedButton(
+                  style: ButtonStyle(
+                    shape: MaterialStateProperty.all(
+                      StadiumBorder(),
+                    ),
+                    backgroundColor: MaterialStateProperty.all(Colors.white),
+                  ),
                   child: new Text(
                     "Yes",
                     style: TextStyle(color: Colors.red),
@@ -147,7 +156,7 @@ Widget adminUserBtn(String categoryText, context) {
     child: RaisedButton(
       onPressed: () {
         if (categoryText == 'Seller') {
-          Navigator.pushNamed(context, '/AdminLogin');
+          Navigator.pushNamed(context, '/MerchantLogin');
         } else {
           Navigator.pushNamed(context, '/UserLogin');
         }
