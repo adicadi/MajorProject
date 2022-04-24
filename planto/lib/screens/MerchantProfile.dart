@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:planto/animations/bottomAnimation.dart';
@@ -200,13 +199,6 @@ class _MerchantProfileState extends State<MerchantProfile> {
                                                             .showSnackBar(SnackBar(
                                                                 content: Text(
                                                                     'Empty Field Found!')));
-                                                    /* Toast.show(
-                                                            'Empty Field Found!',
-                                                            context,
-                                                            backgroundColor:
-                                                                Colors.red,
-                                                            backgroundRadius: 5,
-                                                            duration: 3); */
                                                   },
                                                   child: WidgetAnimator(
                                                     Icon(
@@ -245,7 +237,7 @@ class _MerchantProfileState extends State<MerchantProfile> {
                               ? StreamBuilder(
                                   stream: FirebaseFirestore.instance
                                       .doc(
-                                          'merchantAbout/${widget.merchantDetails.userEmail} ')
+                                          'merchantAbout/${widget.merchantDetails.userEmail}')
                                       .snapshots(),
                                   builder: (context, snapshot) {
                                     if (snapshot.connectionState ==
@@ -340,7 +332,7 @@ class _MerchantProfileState extends State<MerchantProfile> {
                                     return Container(
                                       padding: EdgeInsets.symmetric(
                                           horizontal: width * 0.01,
-                                          vertical: height * 0.01),
+                                          vertical: height * 0.009),
                                       height: height * 0.041,
                                       width: width * 0.7,
                                       decoration: BoxDecoration(
