@@ -9,7 +9,7 @@ import 'package:planto/widgets/customListTiles.dart';
 import 'package:planto/widgets/user_product_item.dart';
 import 'package:provider/provider.dart';
 import '../animations/bottomAnimation.dart';
-import 'merchant.dart';
+import 'merchant_login.dart';
 
 class MerchantPanel extends StatefulWidget {
   final MerchantDetails detailsUser;

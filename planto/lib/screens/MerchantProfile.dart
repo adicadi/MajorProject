@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:planto/animations/bottomAnimation.dart';
-import 'package:planto/screens/merchant.dart';
+import 'package:planto/screens/merchant_login.dart';
 import 'package:planto/widgets/backBtnAndImage.dart';
 
 final controllerBio = TextEditingController();
