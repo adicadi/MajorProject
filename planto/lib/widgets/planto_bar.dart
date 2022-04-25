@@ -10,6 +10,7 @@ class PlantoBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppBar(
       shadowColor: Colors.transparent,
+      automaticallyImplyLeading: false,
       title: Row(
         children: [
           Container(

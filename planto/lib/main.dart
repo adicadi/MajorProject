@@ -9,9 +9,10 @@ import 'package:planto/screens/Intro.dart';
 import 'package:planto/screens/cart_screen.dart';
 import 'package:planto/screens/edit_product_screen.dart';
 import 'package:planto/screens/marketScreen.dart';
-import 'package:planto/screens/merchant.dart';
+import 'package:planto/screens/merchant_login.dart';
 import 'package:planto/screens/orders_screen.dart';
 import 'package:planto/screens/product_detail.dart';
+import 'package:planto/screens/user_login.dart';
 import 'package:planto/screens/user_products_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -59,6 +60,7 @@ class MyApp extends StatelessWidget {
           UserProductsScreen.routeName: (context) => UserProductsScreen(),
           EditProductScreen.routeName: (context) => EditProductScreen(),
           '/MerchantLogin': (context) => MerchantLogin(),
+          '/UserLogin': (context) => UserLogin(),
         },
         //),
       ),

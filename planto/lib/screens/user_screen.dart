@@ -3,9 +3,14 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:planto/screens/orders_screen.dart';
 import 'package:planto/widgets/planto_bar.dart';
 
-class UserScreen extends StatelessWidget {
+class UserScreen extends StatefulWidget {
   const UserScreen({Key key}) : super(key: key);
 
+  @override
+  State<UserScreen> createState() => _UserScreenState();
+}
+
+class _UserScreenState extends State<UserScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +30,7 @@ class UserScreen extends StatelessWidget {
                 SizedBox(
                   width: 20,
                 ),
-                Text('Hello there!',
+                Text('Hello user',
                     style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,

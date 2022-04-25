@@ -5,11 +5,15 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:planto/screens/TestScreen.dart';
 import 'package:planto/screens/marketScreen.dart';
 import 'package:planto/screens/recent.dart';
+import 'package:planto/screens/user_login.dart';
 import 'package:planto/screens/user_screen.dart';
 
 // ignore: must_be_immutable
 class Home extends StatefulWidget {
   PageController pageController = PageController();
+  Home({
+    Key key,
+  }) : super(key: key);
 
   @override
   _HomeState createState() => _HomeState();

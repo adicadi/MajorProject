@@ -54,6 +54,7 @@ class _MarketState extends State<MarketScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         shadowColor: Colors.transparent,
         backgroundColor: HexColor('e2ffec'),
         foregroundColor: HexColor('145E2E'),
