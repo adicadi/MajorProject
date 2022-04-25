@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -5,7 +7,6 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:planto/Model/product_provider.dart';
 import 'package:planto/screens/MerchantProfile.dart';
 import 'package:planto/screens/edit_product_screen.dart';
-import 'package:planto/widgets/customListTiles.dart';
 import 'package:planto/widgets/user_product_item.dart';
 import 'package:provider/provider.dart';
 import '../animations/bottomAnimation.dart';

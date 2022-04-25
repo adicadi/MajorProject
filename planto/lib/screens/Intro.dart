@@ -1,6 +1,7 @@
 // ignore_for_file: unused_field
 
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:planto/screens/Category.dart';
 
 class Intro extends StatefulWidget {
@@ -84,115 +85,117 @@ class _IntroState extends State<Intro> with TickerProviderStateMixin {
         body: Scaffold(
       backgroundColor: Colors.white,
       body: Container(
-        width: width,
-        child: Stack(
-          children: <Widget>[
-            Positioned(
-              top: height * 0.05,
-              left: width - 240,
-              child: Container(
-                decoration:
-                    BoxDecoration(borderRadius: BorderRadius.circular(20)),
-                width: width,
-                child: Image(image: AssetImage('assets/leaf.jpg')),
-              ),
-            ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                padding: EdgeInsets.symmetric(horizontal: width * 0.04),
-                margin: EdgeInsets.fromLTRB(0, 0, 0, height * 0.01),
-                height: height * 0.55,
-                width: width,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      'Planto',
-                      style: TextStyle(
-                          color: Colors.black, fontSize: height * 0.06),
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('assets/leaf.jpg'), fit: BoxFit.cover)),
+          width: width,
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: width * 0.04),
+              margin: EdgeInsets.fromLTRB(0, 0, 0, height * 0.01),
+              height: height * 0.6,
+              width: width,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0)),
+                    color: Colors.white.withOpacity(0.7),
+                    elevation: 20,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: [
+                          Text(
+                            'Planto',
+                            style: TextStyle(
+                                color: HexColor('145E2E'),
+                                fontSize: height * 0.06),
+                          ),
+                          Text(
+                            "Plant Specialist in your hands!",
+                            style: TextStyle(
+                                color: Colors.black.withOpacity(0.5),
+                                fontSize: height * 0.017),
+                          ),
+                        ],
+                      ),
                     ),
-                    Text(
-                      "Plant Specialist in your hands!",
-                      style: TextStyle(
-                          color: Colors.black.withOpacity(0.5),
-                          fontSize: height * 0.017),
-                    ),
-                    SizedBox(
-                      height: height * 0.26,
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Center(
-                          child: AnimatedBuilder(
-                            animation: _widthController,
-                            builder: (context, child) => Container(
-                              width: _widthAnimation.value,
-                              height: 80,
-                              padding: EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(50),
-                                color: Colors.black.withOpacity(0.4),
-                              ),
-                              child: InkWell(
-                                onTap: () {
-                                  _scaleController.forward();
-                                },
-                                child: Stack(
-                                  children: <Widget>[
-                                    AnimatedBuilder(
-                                      animation: _positionController,
-                                      builder: (context, child) => Positioned(
-                                        left: _positionAnimation.value,
-                                        child: AnimatedBuilder(
-                                          animation: _scaleController2,
-                                          builder: (context, child) =>
-                                              Transform.scale(
-                                                  scale: _scale2Animation.value,
-                                                  child: Container(
-                                                      width: 60,
-                                                      height: 60,
-                                                      decoration: BoxDecoration(
-                                                          color: Colors.black,
-                                                          shape:
-                                                              BoxShape.circle),
-                                                      child: hideIcon == false
-                                                          ? Icon(
-                                                              Icons
-                                                                  .arrow_forward,
-                                                              color:
-                                                                  Colors.white,
-                                                            )
-                                                          : Container())),
+                  ),
+                  SizedBox(
+                    height: height * 0.26,
+                  ),
+                  Column(
+                    children: <Widget>[
+                      Center(
+                        child: AnimatedBuilder(
+                          animation: _widthController,
+                          builder: (context, child) => Container(
+                            width: _widthAnimation.value,
+                            height: 80,
+                            padding: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              color: Colors.white.withOpacity(0.4),
+                            ),
+                            child: InkWell(
+                              onTap: () {
+                                _scaleController.forward();
+                              },
+                              child: Stack(
+                                children: <Widget>[
+                                  AnimatedBuilder(
+                                    animation: _positionController,
+                                    builder: (context, child) => Positioned(
+                                      left: _positionAnimation.value,
+                                      child: AnimatedBuilder(
+                                        animation: _scaleController2,
+                                        builder: (context, child) =>
+                                            Transform.scale(
+                                          scale: _scale2Animation.value,
+                                          child: Container(
+                                            width: 60,
+                                            height: 60,
+                                            decoration: BoxDecoration(
+                                                color: Colors.white,
+                                                shape: BoxShape.circle),
+                                            child: hideIcon == false
+                                                ? Icon(
+                                                    Icons.arrow_forward,
+                                                    color: Colors.black,
+                                                  )
+                                                : Container(),
+                                          ),
                                         ),
                                       ),
-                                    )
-                                  ],
-                                ),
+                                    ),
+                                  )
+                                ],
                               ),
                             ),
                           ),
                         ),
-                        SizedBox(
-                          height: height * 0.02,
-                        ),
-                        Text(
-                          'Proceed!',
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: height * 0.02,
-                    )
-                  ],
-                ),
+                      ),
+                      SizedBox(
+                        height: height * 0.02,
+                      ),
+                      Text(
+                        'Proceed!',
+                        style: TextStyle(color: Colors.white),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: height * 0.02,
+                  )
+                ],
               ),
-            )
-          ],
-        ),
-      ),
+            ),
+          )),
     ));
   }
 }
