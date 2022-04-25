@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -30,13 +32,13 @@ class UserLogin extends StatelessWidget {
         new List<ProviderMerchantDetails>();
     providerData.add(providerInfo);
 
-    UserDetails details = new UserDetails(
+    /* UserDetails details = new UserDetails(
       userDetails.uid,
       userDetails.displayName,
       userDetails.photoURL,
       userDetails.email,
       providerData,
-    );
+    ); */
 
     Navigator.push(
       context,
