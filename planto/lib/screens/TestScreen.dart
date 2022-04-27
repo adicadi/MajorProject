@@ -6,7 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:planto/Model/diseaseProvider.dart';
+import 'package:planto/Model/product_provider.dart';
 import 'package:planto/screens/diseaseData.dart';
+import 'package:planto/widgets/TestScreen_market_item.dart';
 import 'package:planto/widgets/planto_bar.dart';
 import 'package:planto/widgets/recent_Carousel.dart';
 import 'package:tflite/tflite.dart';
@@ -84,6 +86,8 @@ class _TestScreenState extends State<TestScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final productsData = Provider.of<Products>(context);
+    final products = productsData.items;
     Color elevatedBtnColor = HexColor('70EE9C');
     final Future<FirebaseApp> _initialization = Firebase.initializeApp();
     final diseaseData = Provider.of<Disease>(context);
@@ -119,7 +123,35 @@ class _TestScreenState extends State<TestScreen> {
                         alignment: Alignment.center,
                         child:  */
                       _image == null || _isLoading
-                          ? RecentCarousel(diseaseData: diseaseData)
+                          ? Column(
+                              children: [
+                                RecentCarousel(diseaseData: diseaseData),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Container(
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.23,
+                                  child: GridView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    padding: const EdgeInsets.all(10),
+                                    itemCount: products.length,
+                                    itemBuilder: (context, i) =>
+                                        ChangeNotifierProvider.value(
+                                      value: products[i],
+                                      child: TestScreenMarketItem(),
+                                    ),
+                                    gridDelegate:
+                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 1,
+                                      childAspectRatio: 4 / 4,
+                                      crossAxisSpacing: 10,
+                                      mainAxisSpacing: 10,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ) //RecentCarousel(diseaseData: diseaseData)
                           : Container(
                               alignment: Alignment.center,
                               margin: EdgeInsets.all(10),
