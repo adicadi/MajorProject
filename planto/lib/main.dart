@@ -13,7 +13,6 @@ import 'package:planto/screens/merchant_login.dart';
 import 'package:planto/screens/orders_screen.dart';
 import 'package:planto/screens/product_detail.dart';
 import 'package:planto/screens/user_login.dart';
-import 'package:planto/screens/user_products_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -57,7 +56,6 @@ class MyApp extends StatelessWidget {
           ProductDetail.routeName: (context) => ProductDetail(),
           CartScreen.routeName: (context) => CartScreen(),
           OrdersScreen.routeName: (context) => OrdersScreen(),
-          UserProductsScreen.routeName: (context) => UserProductsScreen(),
           EditProductScreen.routeName: (context) => EditProductScreen(),
           '/MerchantLogin': (context) => MerchantLogin(),
           '/UserLogin': (context) => UserLogin(),
