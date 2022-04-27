@@ -98,7 +98,7 @@ class _IntroState extends State<Intro> with TickerProviderStateMixin {
               width: width,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Card(
                     shape: RoundedRectangleBorder(

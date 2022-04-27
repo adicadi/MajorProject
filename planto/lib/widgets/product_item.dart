@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:planto/Model/cart.dart';
 import 'package:planto/Model/product.dart';
 import 'package:planto/screens/product_detail.dart';
@@ -9,6 +10,8 @@ class ProductItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final product = Provider.of<Product>(context, listen: false);
     final cart = Provider.of<Cart>(context, listen: false);
+    double width = MediaQuery.of(context).size.width;
+
     return ClipRRect(
       borderRadius: BorderRadius.circular(15),
       child: GridTile(
@@ -23,7 +26,7 @@ class ProductItem extends StatelessWidget {
           ),
         ),
         footer: GridTileBar(
-          backgroundColor: Colors.black87,
+          backgroundColor: HexColor('e2ffec'),
           leading: Consumer<Product>(
             builder: (context, product, child) => IconButton(
               icon: Icon(
@@ -34,14 +37,22 @@ class ProductItem extends StatelessWidget {
               },
             ),
           ),
-          title: Text(
-            product.title,
-            textAlign: TextAlign.center,
-            maxLines: 2,
-            style: Theme.of(context).textTheme.bodyText1,
+          title: FittedBox(
+            child: Text(
+              product.title,
+              textAlign: TextAlign.center,
+              maxLines: 2,
+              style: TextStyle(
+                  fontSize: width * 0.04,
+                  fontWeight: FontWeight.w400,
+                  color: HexColor('145E2E')),
+            ),
           ),
           trailing: IconButton(
-              icon: Icon(Icons.shopping_cart),
+              icon: Icon(
+                Icons.shopping_cart,
+                color: Colors.black38,
+              ),
               onPressed: () {
                 cart.addItem(product.id, product.price, product.title);
                 ScaffoldMessenger.of(context).hideCurrentSnackBar();
