@@ -1,0 +1,67 @@
+Date : 2022-04-27 14:49:26
+Directory : /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib
+Total : 39 files,  3810 codes, 125 comments, 285 blanks, all 4220 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Dart     |         39 |      3,810 |        125 |        285 |      4,220 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                              | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                 |         39 |      3,810 |        125 |        285 |      4,220 |
+| Model                                                                                             |          6 |        270 |         12 |         39 |        321 |
+| animations                                                                                        |          1 |         65 |          0 |         14 |         79 |
+| screens                                                                                           |         16 |      2,641 |         49 |        168 |      2,858 |
+| widgets                                                                                           |         15 |        772 |         63 |         59 |        894 |
++---------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                          | language | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/Model/cart.dart                     | Dart     |         82 |          0 |         11 |         93 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/Model/diseaseProvider.dart          | Dart     |         28 |          1 |          4 |         33 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/Model/diseasemodel.dart             | Dart     |         14 |          2 |          2 |         18 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/Model/orders.dart                   | Dart     |         32 |          0 |          6 |         38 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/Model/product.dart                  | Dart     |         21 |          0 |          4 |         25 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/Model/product_provider.dart         | Dart     |         93 |          9 |         12 |        114 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/animations/bottomAnimation.dart     | Dart     |         65 |          0 |         14 |         79 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/main.dart                           | Dart     |         62 |          1 |          5 |         68 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/screens/Category.dart               | Dart     |        160 |          2 |         10 |        172 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/screens/Intro.dart                  | Dart     |        183 |          2 |         17 |        202 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/screens/MerchantPanel.dart          | Dart     |        239 |          1 |         11 |        251 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/screens/MerchantProfile.dart        | Dart     |        496 |          4 |         17 |        517 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/screens/TestScreen.dart             | Dart     |        228 |         11 |         15 |        254 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/screens/cart_screen.dart            | Dart     |         77 |          1 |          2 |         80 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/screens/diseaseData.dart            | Dart     |        132 |         10 |         12 |        154 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/screens/edit_product_screen.dart    | Dart     |        263 |          0 |          9 |        272 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/screens/home.dart                   | Dart     |         88 |          2 |          5 |         95 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/screens/marketScreen.dart           | Dart     |         93 |          4 |         10 |        107 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/screens/merchant_login.dart         | Dart     |        237 |          4 |         26 |        267 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/screens/orders_screen.dart          | Dart     |         24 |          0 |          3 |         27 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/screens/product_detail.dart         | Dart     |         79 |          0 |          5 |         84 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/screens/recent.dart                 | Dart     |         54 |          0 |          5 |         59 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/screens/user_login.dart             | Dart     |        150 |          8 |         17 |        175 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/screens/user_screen.dart            | Dart     |        138 |          0 |          4 |        142 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/widgets/TestScreen_market_item.dart | Dart     |         56 |         26 |          5 |         87 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/widgets/backBtnAndImage.dart        | Dart     |         46 |          3 |          6 |         55 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/widgets/badge.dart                  | Dart     |         45 |          1 |          4 |         50 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/widgets/cart_item.dart              | Dart     |         88 |          0 |          3 |         91 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/widgets/customListTiles.dart        | Dart     |         97 |         27 |          9 |        133 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/widgets/disease_Text.dart           | Dart     |         53 |          1 |          2 |         56 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/widgets/order_item.dart             | Dart     |         61 |          0 |          7 |         68 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/widgets/planto_bar.dart             | Dart     |         22 |          0 |          3 |         25 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/widgets/product_item.dart           | Dart     |         74 |          0 |          3 |         77 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/widgets/products_grid.dart          | Dart     |         28 |          0 |          2 |         30 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/widgets/recent_Carousel.dart        | Dart     |         27 |          1 |          4 |         32 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/widgets/recent_item.dart            | Dart     |         42 |          3 |          3 |         48 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/widgets/splash.dart                 | Dart     |         24 |          1 |          2 |         27 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/widgets/test_Screenrecent.dart      | Dart     |         62 |          0 |          3 |         65 |
+| /Users/adicadi/Aditya/Flutter_Project/MajorProject/planto/lib/widgets/user_product_item.dart      | Dart     |         47 |          0 |          3 |         50 |
+| Total                                                                                             |          |      3,810 |        125 |        285 |      4,220 |
++---------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
