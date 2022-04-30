@@ -14,7 +14,7 @@ class Disease with ChangeNotifier {
     const url = 'https://planto-965f9-default-rtdb.firebaseio.com/sample.json';
     try {
       final response = await http.get(Uri.parse(url));
-      //print(json.decode(response.body));
+      print(json.decode(response.body));
       final extractedData = json.decode(response.body) as Map<String, dynamic>;
       final List<DiseaseModel> recentSearch = [];
       extractedData.forEach((diseaseId, diseaseData) {

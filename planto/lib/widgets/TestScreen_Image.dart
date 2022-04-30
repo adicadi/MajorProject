@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-class TestScreen_MarketItem extends StatelessWidget {
-  const TestScreen_MarketItem({
+class TestScreenImage extends StatelessWidget {
+  const TestScreenImage({
     Key key,
     @required PickedFile image,
   })  : _image = image,

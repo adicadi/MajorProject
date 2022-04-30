@@ -40,7 +40,7 @@ class UserLogin extends StatelessWidget {
       providerData,
     ); */
 
-    Navigator.push(
+    Navigator.pushReplacement(
       context,
       new MaterialPageRoute(
         builder: (context) => Home() /* UserPanel(detailsUser: details) */,

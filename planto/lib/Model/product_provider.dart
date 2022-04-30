@@ -33,7 +33,7 @@ class Products with ChangeNotifier {
         'https://planto-965f9-default-rtdb.firebaseio.com/products.json';
     try {
       final response = await http.get(Uri.parse(url));
-      print(json.decode(response.body));
+      //print(json.decode(response.body));
       final extractedData = json.decode(response.body) as Map<String, dynamic>;
       final List<Product> loadedProducts = [];
       extractedData.forEach((prodId, prodData) {
@@ -69,7 +69,7 @@ class Products with ChangeNotifier {
       ),
     )
         .then((response) {
-      print(json.decode(response.body));
+      //print(json.decode(response.body));
       final newProduct = Product(
         id: json.decode(response.body)['name'],
         title: product.title,

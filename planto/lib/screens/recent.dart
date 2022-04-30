@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:planto/Model/diseaseProvider.dart';
 import 'package:planto/widgets/planto_bar.dart';
@@ -35,7 +36,7 @@ class _RecentSearchState extends State<RecentSearch> {
           preferredSize: const Size.fromHeight(60), child: PlantoBar()),
       body: _isloading
           ? Center(
-              child: CircularProgressIndicator(),
+              child: CupertinoActivityIndicator(),
             )
           : Padding(
               padding: EdgeInsets.only(top: 5, left: 10, right: 10),

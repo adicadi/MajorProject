@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:planto/Model/product_provider.dart';
@@ -98,7 +99,7 @@ class _MarketState extends State<MarketScreen> {
       ),
       body: _isloading
           ? Center(
-              child: CircularProgressIndicator(),
+              child: CupertinoActivityIndicator(),
             )
           : ProductsGrid(_showOnlyFavorites),
     );

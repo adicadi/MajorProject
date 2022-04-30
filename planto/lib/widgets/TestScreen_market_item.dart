@@ -26,7 +26,7 @@ class TestScreenMarketItem extends StatelessWidget {
                   .pushNamed(ProductDetail.routeName, arguments: product.id);
             },
             child: CircleAvatar(
-              radius: MediaQuery.of(context).size.width * 0.14,
+              radius: MediaQuery.of(context).size.width * 0.13,
               backgroundImage: NetworkImage(product.imageUrl),
             ),
           ),
@@ -55,32 +55,6 @@ class TestScreenMarketItem extends StatelessWidget {
           ),
         ],
       ),
-
-      /*  
-          trailing: IconButton(
-              icon: Icon(
-                Icons.shopping_cart,
-                color: Colors.black38,
-              ),
-              onPressed: () {
-                cart.addItem(product.id, product.price, product.title);
-                ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text('Added Item to Cart'),
-                    duration: Duration(seconds: 2),
-                    action: SnackBarAction(
-                      label: 'Undo',
-                      onPressed: () {
-                        cart.removeSingleItem(product.id);
-                      },
-                    ),
-                  ),
-                );
-              }),
-        ),
-      ),
-    ); */
     );
   }
 }
