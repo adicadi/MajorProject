@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:planto/screens/about.dart';
 import 'package:planto/screens/orders_screen.dart';
 import 'package:planto/widgets/planto_bar.dart';
 
@@ -115,7 +116,10 @@ class _UserScreenState extends State<UserScreen> {
                   Padding(
                     padding: EdgeInsets.fromLTRB(10, 8, 10, 15),
                     child: InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => About()));
+                      },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -133,7 +137,19 @@ class _UserScreenState extends State<UserScreen> {
                 ],
               ),
             ),
-          )
+          ),
+          Column(
+            children: <Widget>[
+              Text(
+                'Version',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              Text(
+                'V 1.0',
+                style: TextStyle(fontSize: 12),
+              )
+            ],
+          ),
         ],
       ),
     );
