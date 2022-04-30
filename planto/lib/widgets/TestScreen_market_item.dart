@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:planto/Model/product.dart';
@@ -25,10 +26,14 @@ class TestScreenMarketItem extends StatelessWidget {
               Navigator.of(context)
                   .pushNamed(ProductDetail.routeName, arguments: product.id);
             },
-            child: CircleAvatar(
-              radius: MediaQuery.of(context).size.width * 0.13,
-              backgroundImage: NetworkImage(product.imageUrl),
-            ),
+            child: product.imageUrl == null
+                ? Container(
+                    child: CupertinoActivityIndicator(),
+                  )
+                : CircleAvatar(
+                    radius: MediaQuery.of(context).size.width * 0.13,
+                    backgroundImage: NetworkImage(product.imageUrl),
+                  ),
           ),
           SizedBox(
             height: 10,

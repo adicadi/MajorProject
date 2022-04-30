@@ -32,19 +32,9 @@ class UserLogin extends StatelessWidget {
         new List<ProviderMerchantDetails>();
     providerData.add(providerInfo);
 
-    /* UserDetails details = new UserDetails(
-      userDetails.uid,
-      userDetails.displayName,
-      userDetails.photoURL,
-      userDetails.email,
-      providerData,
-    ); */
-
     Navigator.pushReplacement(
       context,
-      new MaterialPageRoute(
-        builder: (context) => Home() /* UserPanel(detailsUser: details) */,
-      ),
+      new MaterialPageRoute(builder: (context) => Home()),
     );
 
     return userDetails;
@@ -101,7 +91,7 @@ class UserLogin extends StatelessWidget {
                     height: height * 0.02,
                   ),
                   RaisedButton(
-                    padding: EdgeInsets.symmetric(vertical: height * 0.013),
+                    padding: EdgeInsets.symmetric(vertical: height * 0.01),
                     color: Colors.white,
                     shape: StadiumBorder(),
                     onPressed: () {
@@ -142,7 +132,7 @@ class UserLogin extends StatelessWidget {
                     '\nTake care of your plants!"',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontSize: height * 0.018,
+                        fontSize: height * 0.017,
                         color: Colors.black.withOpacity(0.3),
                         fontStyle: FontStyle.italic),
                   ),

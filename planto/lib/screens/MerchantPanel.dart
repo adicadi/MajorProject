@@ -1,6 +1,5 @@
 // ignore_for_file: deprecated_member_use
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -22,12 +21,6 @@ class MerchantPanel extends StatefulWidget {
 }
 
 class _MerchantPanelState extends State<MerchantPanel> {
-  Future getDiseaseInfo() async {
-    var firestore = FirebaseFirestore.instance;
-    QuerySnapshot qn = await firestore.collection("Diseases").get();
-    return qn.docs;
-  }
-
   final GoogleSignIn _gSignIn = GoogleSignIn();
 
   bool editPanel = false;
@@ -190,35 +183,21 @@ class _MerchantPanelState extends State<MerchantPanel> {
                 ],
               ),
             ),
-            FutureBuilder(
-              future: getDiseaseInfo(),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(
-                    child: CircularProgressIndicator(
-                      valueColor:
-                          new AlwaysStoppedAnimation<Color>(Colors.black),
+            Container(
+              margin: EdgeInsets.fromLTRB(0, height * 0.325, 0, 0),
+              child: ListView.builder(
+                itemCount: productsData.items.length,
+                itemBuilder: (_, i) => Column(
+                  children: [
+                    UserProductItem(
+                      productsData.items[i].title,
+                      productsData.items[i].imageUrl,
+                      productsData.items[i].id,
                     ),
-                  );
-                } else {
-                  return Container(
-                    margin: EdgeInsets.fromLTRB(0, height * 0.325, 0, 0),
-                    child: ListView.builder(
-                      itemCount: productsData.items.length,
-                      itemBuilder: (_, i) => Column(
-                        children: [
-                          UserProductItem(
-                            productsData.items[i].title,
-                            productsData.items[i].imageUrl,
-                            productsData.items[i].id,
-                          ),
-                          Divider(),
-                        ],
-                      ),
-                    ),
-                  );
-                }
-              },
+                    Divider(),
+                  ],
+                ),
+              ),
             ),
             Positioned(
                 top: height * 0.02,

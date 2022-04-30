@@ -2,9 +2,6 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-/// weather API network helper
-/// pass the weatherAPI url
-///  to this class to get geographical coordinates
 class NetworkData {
   NetworkData(this.url);
   final String url;

@@ -29,15 +29,16 @@ class _DiseaseDataState extends State<DiseaseData> {
 
   _DiseaseDataState(this.value, this.img);
 
-  Future uploadImageToFirebase(BuildContext context) async {
+  /* Future uploadImageToFirebase(BuildContext context) async {
     String fileName = basename(value);
     FirebaseStorage firebaseStorageRef = FirebaseStorage.instance;
     Reference ref = firebaseStorageRef.ref().child('uploads/$fileName');
     UploadTask uploadTask = ref.putFile(img);
     uploadTask.then((res) {
       res.ref.getDownloadURL();
+      print('File Uploaded');
     });
-  }
+  } */
 
   Future<void> sendData() async {
     setState(() {
@@ -96,15 +97,13 @@ class _DiseaseDataState extends State<DiseaseData> {
                     padding: const EdgeInsets.only(top: 640),
                     child: InkWell(
                       onTap: () {
-                        //sendData();
-                        uploadImageToFirebase(context);
+                        sendData();
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text('Saved'),
                             duration: Duration(seconds: 1),
                           ),
                         );
-                        /*  print(sendData()); */
                       },
                       child: Container(
                         padding: EdgeInsets.all(6),
@@ -129,7 +128,7 @@ class _DiseaseDataState extends State<DiseaseData> {
                         ),
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

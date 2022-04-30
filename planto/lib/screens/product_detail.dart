@@ -35,7 +35,7 @@ class ProductDetail extends StatelessWidget {
           ),
           SizedBox(height: 10),
           Text(
-            '\$${stockedProduct.price}',
+            '\u{20B9}${stockedProduct.price}',
             style: Theme.of(context).textTheme.headline1,
           ),
           Divider(

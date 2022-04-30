@@ -3,6 +3,7 @@
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:planto/Model/add_location._weather.dart';
@@ -160,7 +161,7 @@ class _TestScreenState extends State<TestScreen> {
                     style: TextStyle(color: Colors.red),
                   ),
                   onPressed: () {
-                    Navigator.of(context).pop(true);
+                    SystemNavigator.pop();
                   },
                 ),
               ],
@@ -221,7 +222,7 @@ class _TestScreenState extends State<TestScreen> {
                               )
                             : RecentCarousel(diseaseData: diseaseData),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.02,
+                          height: MediaQuery.of(context).size.height * 0.01,
                         ),
                         TestScreen_MarketGrid(products: products),
                       ],
