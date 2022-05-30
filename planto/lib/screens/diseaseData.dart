@@ -1,3 +1,5 @@
+// ignore_for_file: no_logic_in_create_state, use_key_in_widget_constructors, prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
